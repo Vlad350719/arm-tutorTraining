@@ -1,0 +1,11 @@
+# node
+node_modules/
+dist/
+*.log
+.DS_Store
+
+# dotenv
+.env
+
+# build output
+client/dist/
