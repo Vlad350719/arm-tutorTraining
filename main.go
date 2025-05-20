@@ -1,7 +1,19 @@
 package main
 
-import "fmt"
+import (
+	"log"
+	"net/http"
+
+	"armwrestling/handlers/api"
+)
 
 func main() {
-	fmt.Println("program starts")
+	http.HandleFunc("/api/user", api.UserHandler)
+	http.HandleFunc("/api/react", api.ReactHandler)
+
+	fs := http.FileServer(http.Dir("./dist"))
+	http.Handle("/", fs)
+
+	log.Println("start")
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
