@@ -7,3 +7,5 @@ dist/
 .env
 
 client/dist/
+
+*.txt
